@@ -1,0 +1,1050 @@
+
+・楽をしたい
+
+var k = line.Split(' ');
+var a = int.Parse(k[0]);
+var b = int.Parse(k[1]);
+
+・ジャグ配列でダメなら多次元配列使う　,
+char[,] array = new char[height,width];
+        for(int i = 0;i<height;i++){
+            var line2 = Console.ReadLine();
+            for(int j = 0;j<width;j++){
+                array[i,j] = line2[j];
+            }
+        }
+        
+・バブルソート
+        for (int i = 0; i < line; i++){
+		    for (int j = 0; j < line - 1; j++){
+			    if (array[j,0] < array[j + 1,0]){
+				    tmp = array[j,0];
+				    array[j,0] = array[j + 1,0];
+				    array[j + 1,0] = tmp;
+				 }
+			}
+		}
+
+・キーとバリュー　key value　とても簡単
+using System.Collections.Generic;
+using System.Linq;
+
+Dictionary<string, int> dic = new Dictionary<string, int>();
+dic.Add(m[i], 0);
+//IDだけで値が出てくる
+dic[name] = dic[name] + price;
+//LINQで値が大きい順　とても簡単に入れ替えられる　ただし他のテーブル
+var newTable = dic.OrderBy(x => -x.Value);
+//出力もとても簡単　これなら値だけでる
+foreach(KeyValuePair<string, int> item in newTable) {
+            Console.WriteLine("{0}", item.Key);  
+        }
+//こっちならキーとバリューがでる
+foreach(KeyValuePair<string, string> item in newTable) {
+        Console.WriteLine("[{0}:{1}]", item.Key, item.Value);  
+      }
+
+・ArrayList
+
+ArrayList menue = new ArrayList();
+        
+        for(int i = 0;i<reshipi;i++){
+            var line2 = Console.ReadLine();
+            menue.Add(double.Parse(line2));
+        }
+        
+        int allColory = 0;
+       
+        for(int i = 0;i<man;i++){
+            allColory = 0;
+            var line3 = Console.ReadLine();
+            for(int j = 0;j<reshipi;j++){
+                var n = line3.Split(' ');
+                var eat = Double.Parse(n[j]);
+                allColory = allColory + (int)(eat * ((Double)menue[j]/100));
+            }
+            Console.WriteLine(allColory);
+        }
+        
+        
+    }
+}
+
+・ハッシュテーブル
+
+Hashtable ht = new Hashtable();
+        if (!ht.ContainsKey(name)) {
+                ht[name] = "フランス";
+            }else{
+                ht.Add(name,price);
+        }
+        
+
+・拡張For文で段になるように出力
+int newLine = 0;
+        foreach(int s in arrayNew){
+            if(newLine == (n/k)){
+                Console.WriteLine("");
+                newLine = 0;
+            }
+            
+            if(newLine == 0){
+                    Console.Write(s);
+                    newLine++;
+            }else{
+                    Console.Write(" " + s);
+                    newLine++;
+            }
+        }
+
+・Splitで文字を分割した際、間が一個空いた場合は "" で配列に入力されていると検証できた
+
+
+・ソートもリストもあった
+var line = int.Parse(Console.ReadLine());
+        int[,] array = new int[line,line];
+        var mountain = new ArrayList();
+        
+        for(int i = 0;i<line;i++){
+            var line2 = Console.ReadLine();
+            var k = line2.Split(' ');
+            for(int j = 0;j<line;j++){
+                var a = int.Parse(k[j]);
+                array[i,j] = a;
+            }
+        }
+        
+        int top = 1;
+        int dontLookUp = 0;
+        int dontLookDown = 0;
+        int dontLookLeft = 0;
+        int dontLookRight = 0;
+        
+        
+        for(int i = 0;i<line;i++){
+            for(int j = 0;j<line;j++){
+                if(i == 0){
+                    //上は見ない
+                    dontLookUp = 1;
+                }
+                if(i == line - 1){
+                    dontLookDown = 1;
+                }
+                if(j == 0){
+                    dontLookLeft = 1;
+                }
+                if(j == line - 1){
+                    dontLookRight = 1;
+                }
+                
+                if(dontLookUp == 0){
+                    if(array[i-1,j] >= array[i,j]){
+                        top = 0;
+                    }
+                }
+                
+                if(dontLookDown == 0){
+                    if(array[i+1,j] >= array[i,j]){
+                        top = 0;
+                    }
+                }
+                if(dontLookLeft == 0){
+                    if(array[i,j-1] >= array[i,j]){
+                        top = 0;
+                    }
+                }
+                if(dontLookRight == 0){
+                    if(array[i,j+1] >= array[i,j]){
+                        top = 0;
+                    }
+                }
+                
+                if(top == 1){
+                    mountain.Add(array[i,j]);
+                }
+                top = 1;
+                dontLookUp = 0;
+                dontLookDown = 0;
+                dontLookLeft = 0;
+                dontLookRight = 0;
+            }
+        }
+        
+        //一度昇順にしないとうまくいかない
+        mountain.Sort();
+        mountain.Reverse();
+        
+        foreach ( Object obj in mountain )
+        Console.WriteLine(obj);
+
+       
+
+・辞書順
+using System.Collections;
+
+        StringComparer cmp = StringComparer.OrdinalIgnoreCase;
+        Array.Sort(pages, cmp);
+
+・掛け算
+using System;
+public class Hello{
+public static void Main(){
+        var data1 = 0;
+        var data2 = 0;
+        data1 = int.Parse(Console.ReadLine());
+        data2 = int.Parse(Console.ReadLine());
+        Console.WriteLine(data1 * data2);}
+}
+
+
+・指定の文字の個数を数える
+
+var line = Console.ReadLine();
+
+Console.WriteLine(CountChar(line, 'A')); // 出力：5
+}
+
+public static int CountChar(string line, char c) {
+return line.Length - line.Replace(c.ToString(), "").Length;
+
+
+・intから小数点を出したいdoubleにしたいなら
+
+        var all = Console.ReadLine();
+        
+        var k = all.Split(' ');
+        
+        var a = (double)int.Parse(k[0]);
+        var b = (double)int.Parse(k[1]);
+        var c = (double)int.Parse(k[2]);
+        
+        double first = (a * (100 - b) / 100);
+        double second = (first * (100 - c) / 100);
+        
+        Console.WriteLine(second);
+    }
+
+・文字列を配列に格納　ToCharArray
+
+        var Future = Console.ReadLine();
+        
+        char []c = new char[Future.Length];
+        c = Future.ToCharArray();
+
+・Stringに変換したりとか
+ var line = int.Parse(Console.ReadLine());
+        
+        string []countryList = new string[line];
+        int []clock = new int[line];
+        int baseClock = 0;
+        int outHour;
+        string hourStr;
+        int jisa;
+        
+        for(int i =0;i<line;i++){
+        var line2 = Console.ReadLine();
+        var k = line2.Split(' ');
+        var country = k[0];
+        var time = int.Parse(k[1]);
+        countryList[i] = country;
+        clock[i] = time;
+        }
+        var nPlace = Console.ReadLine();
+        var n = nPlace.Split(' ');
+        string now = n[0];
+        var nowTime = n[1];
+        var na = nowTime.Split(':');
+        int nowTimeHour = int.Parse(na[0]);
+        string nowTimeMinutes = na[1];
+        
+        for(int i =0;i<line;i++){
+            if(now == countryList[i]){
+                baseClock=clock[i];
+            }
+        }
+        
+        for(int i =0;i<line;i++){
+            jisa = clock[i] - baseClock;
+            
+            if(nowTimeHour + jisa < 0){
+                outHour = 24 - (nowTimeHour - jisa);
+            }else if(nowTimeHour + jisa >= 24){
+                outHour = (nowTimeHour + jisa) - 24;
+            }else{
+                outHour = nowTimeHour + jisa;
+            }
+            
+            if(outHour < 10){
+                hourStr = "0" + outHour.ToString();
+                Console.WriteLine(hourStr + ":" + nowTimeMinutes);
+            }else{
+                Console.WriteLine(outHour + ":" + nowTimeMinutes);
+            }
+            
+        }
+        
+    }
+
+・ランダムに出す
+        Random rnd = new Random();
+
+        string[] SDDK_WORDS = new string[] { "YES", "NO" };
+        int i = rnd.Next(SDDK_WORDS.Length); 
+        Console.WriteLine(SDDK_WORDS[i]);
+
+・宣言
+int[] nisin = new int[10];
+
+・出力　小数点一以下までを出すように後から出力だけ調節
+var line = int.Parse(Console.ReadLine());
+        
+        float le = 200;
+        float ge = 10;
+        
+        for(int i =0;i<line;i++){
+        var line2 = Console.ReadLine();
+        var t = line2.Split(' ');
+        var a = t[0];
+        var b = float.Parse(t[1]);
+            
+        if(a == "ge"){
+            if(b > ge){
+                ge = b;
+            }
+        }else if(a == "le"){
+            if(b < le){
+                le = b;
+            }
+        }
+        
+        }
+        string n= ge.ToString("0.0");
+        string s = le.ToString("0.0");
+        Console.WriteLine(n + " " + s);
+    }
+
+・比較のやつようやくできた　スペースで分けるやつ
+using System;
+public class Hello{
+    public static void Main(){
+        
+        var ab = Console.ReadLine();
+        var t = ab.Split(' ');
+        var a = int.Parse(t[0]);
+        var b = int.Parse(t[1]);
+
+
+        if(a < b){
+            Console.WriteLine(t[1]);
+        }
+        else if(a > b){
+            Console.WriteLine(t[0]);
+        }
+        else{
+            Console.WriteLine("eq");
+        }
+    }
+}
+
+
+・改行まぜてくるパターン
+using System;
+public class Hello{
+    public static void Main(){
+
+    var line1 = int.Parse(Console.ReadLine().Trim());
+    var line2 = int.Parse(Console.ReadLine().Trim());
+    
+    Console.WriteLine(line1 * line2);
+
+        }
+        
+・改行まじりのを取得したいなら
+using System;
+public class Hello{
+    public static void Main(){
+        
+        var line1 = System.Console.ReadLine().Trim();
+        var line2 = System.Console.ReadLine().Trim();
+        
+        var t = line1.Split(' ');
+
+        var a = int.Parse(t[0]);
+        var b = int.Parse(t[1]);
+        var c = int.Parse(line2);
+
+        Console.Write(a-c+" ");
+        Console.Write(b-c);
+
+    }
+}
+
+・数字だけを取り出す　Regexメソッド
+using System;
+using System.Text.RegularExpressions;
+
+class Program
+{
+    static void Main()
+    {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        string line = Console.ReadLine();
+        Regex re = new Regex(@"[^-+*0-9]"); // 「英数字と-、+、*」以外
+        Console.WriteLine(re.Replace(line, ""));
+    }
+}
+
+・文字列に文字を入れ込む　StringBuilderからInsert
+    {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        var line = Console.ReadLine();
+        string lin = line.ToString();
+        
+      StringBuilder sb = new StringBuilder(lin);
+      string str = "\n";
+
+        if(lin.Length >= 10){
+        Console.Write(sb.Insert(10, str));    
+        }else{
+        Console.Write(lin);        
+        }
+    }
+
+・絶対値を取得
+        var answer = Math.Abs(line);
+        
+・累乗したい場合　line
+        Console.WriteLine(Math.Pow(2, line));
+        
+・文字の要素の数を数えたりなら　Length
+        str.Split(' ').Length;
+
+・改行してても取得できる　マイナスの場合0点にするというのができなかった
+using System;
+public class Hello{
+    public static void Main(){
+
+
+        var Class = Console.ReadLine();
+
+        
+        var t = Class.Split(' ');
+        var ClassMath = int.Parse(t[0]);
+        var PassMath = int.Parse(t[1]);
+        
+        int i = 0;
+        for(i=0; i < ClassMath; i++)
+        {
+            var n = Console.ReadLine();
+            
+            var m = n.Split(' ');
+            var Point = int.Parse(m[0]);
+            var Loss = int.Parse(m[1]);
+            
+            /*
+            if(Point - (Loss*5) < 0)
+            {
+
+            }
+            */
+            
+            if(Point - (Loss*5) > PassMath -1)
+            {
+                Console.WriteLine(i+1);
+            }
+
+        }
+        }
+        
+    }
+
+
+
+・文字を囲いたい
+using System;
+public class Hello{
+    public static void Main(){
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+
+        var S = Console.ReadLine();
+        string str1 = S;
+        //Console.WriteLine(str1.Length);
+        
+        int i = 0;
+        int Plu2 = str1.Length + 2;
+        
+        for(i=0;i < Plu2 ;i++)
+        {
+        Console.Write("+");
+        }
+
+        if(i == Plu2)
+        {
+        Console.Write("\r\n");
+        }
+        
+        Console.WriteLine("+" +  S + "+");
+
+        for(i=0;i<Plu2 ;i++)
+        {
+            Console.Write("+");
+        }
+        }
+ }
+
+・1+2+3...の計算式
+
+        var line = int.Parse(Console.ReadLine());
+        
+        var i = 0;
+        int line2 = 0;
+        
+        for(i=0;i <= line;i++){
+            
+            line2 = i*(i+1)/2;
+            }
+        Console.WriteLine(line2);
+
+・指定された数、文字に直して並べたい
+        var S = int.Parse(Console.ReadLine());
+
+        int i = 0;
+
+        for(i=0;i < S ;i++)
+        {
+        Console.Write("*");
+        }
+
+・for文の注意
+        for(i=0;i<count;i++){
+        Console.Write(word);
+        }
+countが大きい間繰り返す
+
+
+・指定した文字列を消す
+using System;
+public class Hello{
+    public static void Main(){
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+
+        var S = Console.ReadLine();
+        string stra = S.Replace("a","");
+        string stri = stra.Replace("i","");
+        string stru = stri.Replace("u","");
+        string stre = stru.Replace("e","");
+        string stro = stre.Replace("o","");
+
+        string strA = stro.Replace("A","");
+        string strB = strA.Replace("I","");
+        string strC = strB.Replace("U","");
+        string strD = strC.Replace("E","");
+        string strE = strD.Replace("O","");
+
+        Console.Write(strE);
+        }
+ }
+ 
+ ・一文字だけ取得したいならcharに入れればいい
+ 
+ var line = Console.ReadLine();
+        
+        var t = line.Split(' ');
+        var a = t[0];
+        var b = int.Parse(t[1]);
+        
+        char c = a[b-1];
+        
+        Console.WriteLine(c);
+        
+ ・スペースで区切った単語の頭文字を一文字ずつ受け取る
+ 
+ class Program
+{
+    static void Main(){
+    var line = int.Parse(Console.ReadLine());
+    var line2 = Console.ReadLine();
+        
+    var t = line2.Split(' ');
+    
+    for(int i=0;i < line;i++)
+    {
+    var a = t[i];
+    char c = a[0];
+    Console.Write(c);
+    }
+}
+ 
+ ・取得するものがいくつあるかわからないとき
+	static void Main(){
+    var team = new List<string>();
+
+    string line;
+    var a = Console.ReadLine();
+    
+    while ((line=Console.ReadLine()) != null) {
+    team.Add(line);
+    }
+
+    foreach(var str in team) {
+     Console.WriteLine(str);
+        }
+    }
+
+・数字のStringを一文字ずつ抽出して足す
+var line = Console.ReadLine();
+        string str = line.Replace("-","");
+        
+        int sum = 0;
+        int num = 0;
+        int numMove = 0;
+        int length = str.Length;
+
+        for(int i=0;i < length ;i++)
+        {
+        num = int.Parse(str.Substring(i,1));
+        if(num == 0){
+            numMove = 12;
+        }if(num == 1){
+            numMove = 3;
+        }if(num == 2){
+            numMove = 4;
+        }if(num == 3){
+            numMove = 5;
+        }if(num == 4){
+            numMove = 6;
+        }if(num == 5){
+            numMove = 7;
+        }if(num == 6){
+            numMove = 8;
+        }if(num == 7){
+            numMove = 9;
+        }if(num == 8){
+            numMove = 10;
+        }if(num == 9){
+            numMove = 11;
+        }
+        sum = numMove + numMove + sum;
+        }
+        
+        Console.WriteLine(sum);
+        
+        
+・選択ソート
+for(i=0;i<num;i++){
+	for(j=i+1;j<num;j++){
+		if(a[i] > a[j]){
+			min = j;
+		}
+minの数字を入れ替える
+
+・頭から三文字を取得 Substring(開始位置,終了位置);　1のこと多い右側
+        var line = Console.ReadLine();
+        
+        String b = line.Substring(0,3);
+        
+        Console.WriteLine(b);
+    }
+}
+
+・文字の長さを取得し、一文字ずつ出力
+static void Main()
+    {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        var line = Console.ReadLine();
+        
+        var i = 0;
+        
+        // 文字列の長さを取得する
+        int iLength = line.Length;
+        
+        for(i=0;i<iLength;i++){
+        Console.WriteLine(line.Substring(i, 1));
+        }
+
+・文字を前から順に切り出したいとき
+
+        var line = Console.ReadLine();
+        var num = int.Parse(Console.ReadLine());
+        
+        Console.WriteLine(line.Substring(0, num));
+
+・大文字にしたい
+var line = Console.ReadLine();
+        
+        string stTarget = line;
+
+        // 文字列を大文字に変換する
+        string stUpper = stTarget.ToUpper();
+        
+        Console.WriteLine(stUpper);
+
+・文字列を分割して格納して、出力　いくつあっても大丈夫
+
+using System;
+using System.Collections.Generic;
+public class Hello{
+    public static void Main(){
+        var team = new List<string>();
+        string line;
+        while ((line=Console.ReadLine()) != null) {
+            // ここに、文字列を分割して、出力するコードを書く
+            
+            string[] arr =  line.Split(',');
+            var a = arr[0];
+            var b = arr[1];
+            team.Add(a + "が" + b + "匹現れた");
+        }
+        
+        foreach(var str in team){
+        Console.WriteLine(str);
+        }
+
+・文字列を見て　数をかぞえ、多い方にそろえる
+var line = Console.ReadLine();
+        int und;
+        int hif;
+        string stra;
+        
+        und = CountChar(line, '_'); 
+        hif = CountChar(line, '-'); 
+        
+        if(und < hif){
+            stra = line.Replace("_","-");
+        }else{
+            stra = line.Replace("-","_");
+        }
+        
+        Console.WriteLine(stra);
+    }
+    
+    public static int CountChar(string line, char c) {
+    return line.Length - line.Replace(c.ToString(), "").Length;
+    }
+
+・指定した文字を検索　True　OR　False
+        var line = Console.ReadLine();
+        if(line.Contains("i")||line.Contains("I")||line.Contains("l")){
+            Console.WriteLine("caution");    
+        }else{
+            Console.WriteLine(line);     
+        }
+
+・C055:ログのフィルター　リスト難しい　おしいところまでいった
+    static void Main()
+    {
+        //文字列の数を取得
+        var n = int.Parse(Console.ReadLine());
+        var i = 0;
+        string target = "ai";
+      
+        int noneCount = 0;
+
+        //List<データ型> 変数名 = new List<データ型>();
+        List<string> aiList = new List<string>();
+        
+        for(i=0 ; i < n + 1 ; i++)
+        {
+        var word = Console.ReadLine();
+        if(word.Contains(target))
+        {
+        //ここでリストに入れる
+        //Console.WriteLine(word);
+        aiList.Add(word);
+        }
+        else{
+        noneCount++;
+        }
+        
+        foreach(string wordAi in aiList) {
+        Console.WriteLine(wordAi);
+        }
+        
+        if(noneCount == n){
+        Console.WriteLine("None");
+        }
+        
+        }
+
+
+・今までで一番うまくA書けたけどダメだった　Sortもやっている
+using System;
+using System.Collections;
+
+class Program
+{
+    static void Main()
+    {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        var line = int.Parse(Console.ReadLine());
+        int[] test = new int[line];
+        
+        //ただのListに数字いれている
+        for(int i = 0;i<line;i++){
+            var line2 = int.Parse(Console.ReadLine());
+            test[i] = line2;
+        }
+        
+        int point = 0;
+        int moveNum;
+        int sum;
+        int k;
+        
+        int line3 = line  - 1;
+        int moveNum2;
+        int sum2 = 0;
+        
+        ArrayList pointAL = new ArrayList();
+        
+        
+        //基準の値が最後までいくまで
+        for(int i = 0;i<line;i++){
+            sum = 0;
+            //動かす値 k
+            k = i;
+            //初期値はArrayへ
+            pointAL.Add(test[i]);
+            
+            while(k < line){
+                //徐々に膨らむ値
+                sum = sum + test[k];
+                for(moveNum = k + 1;moveNum<line;moveNum++){
+                pointAL.Add(sum + test[moveNum]);
+                }
+                
+                //反対側からくる
+                moveNum2 = line3;
+                while(moveNum2 > k){
+                    sum2 = sum2 + test[moveNum2];
+                    pointAL.Add(sum + sum2);
+                    moveNum2--;
+                }
+                sum2 = 0;
+                k++;
+            }
+        }
+        
+
+        
+        
+        pointAL.Sort();
+        
+        
+        int equalNum = 0;
+        int count = 0;
+        
+        foreach (Object obj in pointAL){
+            if(equalNum == (int)obj){
+                ;
+            }else{
+                count++;
+                equalNum = (int)obj;
+            }
+            
+        }
+        
+        Console.WriteLine(count+1);
+        Console.WriteLine(0);
+        foreach (Object obj in pointAL){
+            if(equalNum == (int)obj){
+                ;
+            }else{
+                Console.WriteLine(obj);
+                equalNum = (int)obj;
+            }
+            
+        }
+    }
+}
+
+・B021
+ダメだった
+using System.Collections.Generic;
+public class Hello{
+    public static void Main(){
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+
+        int i = 0;
+        int a = 1;
+        string[] array;
+        var list = new List<string>();
+        while (true) {
+            string line = System.Console.ReadLine();
+            if (line == null) {
+                break;
+            }
+            else {
+                list.Add(line);
+                i++;
+            }
+        }
+        array = list.ToArray();
+        
+        while (true) {
+            if(array[a].EndsWith("s")){
+                System.Console.WriteLine(array[a]+"es");
+            }
+                if(array[a].EndsWith("sh")){
+                System.Console.WriteLine(array[a]+"es");
+            }
+                if(array[a].EndsWith("ch")){
+                System.Console.WriteLine(array[a]+"es");
+            }
+                if(array[a].EndsWith("o")){
+                System.Console.WriteLine(array[a]+"es");
+            }
+                if(array[a].EndsWith("x")){
+                System.Console.WriteLine(array[a]+"es");
+            }
+                if(array[a].EndsWith("f")){
+                System.Console.WriteLine(array[a].TrimEnd('f')+"ves");
+            }
+                else{
+                System.Console.WriteLine(array[a]+"s");
+            }
+            if (array[a] == null) {
+                break;
+            }
+            else {
+                a++;
+            }
+        }
+    }
+}
+
+
+/*
+                if(array[a].EndsWith("fe")){
+                System.Console.WriteLine(array[a].TrimEnd('fe')+"ves");
+            }
+
+・力技で12個の数を比べた
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        
+        var sum = 0;
+        
+        var line = Console.ReadLine();
+        var num = line.Split(' ');
+        var a = int.Parse(num[0]);
+        var b = int.Parse(num[1]);
+        var c = int.Parse(num[2]);
+        var d = int.Parse(num[3]);
+        
+        
+        var first = a * 10 + b;
+        var second = c * 10 + d;
+        
+        var firSe = first + second;
+        
+        var first2 = a * 10 + b;
+        var second2 = d * 10 + c;
+        
+        var firSe2 = first2 + second2;
+        
+        var first3 = a * 10 + c;
+        var second3 = b * 10 + d;
+        
+        var firSe3 = first3 + second3;
+        
+        var first4 = b * 10 + a;
+        var second4 = c * 10 + d;
+        
+        var firSe4 = first4 + second4;
+        
+        var first5 = a * 10 + c;
+        var second5 = b * 10 + d;
+        
+        var firSe5 = first5 + second5;
+        
+        var first6 = a * 10 + d;
+        var second6 = c * 10 + b;
+        
+        var firSe6 = first6 + second6;
+        
+        var first7 = c * 10 + a;
+        var second7 = b * 10 + d;
+        
+        var firSe7 = first7 + second7;
+        
+        var first8 = c * 10 + d;
+        var second8 = b * 10 + a;
+        
+        var firSe8 = first8 + second8;
+        
+        
+        var first9 = d * 10 + b;
+        var second9 = c * 10 + a;
+        
+        var firSe9 = first9 + second9;
+        
+        var first10 = d * 10 + a;
+        var second10 = b * 10 + c;
+        
+        var firSe10 = first10 + second10;
+        
+        var first11 = d * 10 + a;
+        var second11 = c * 10 + b;
+        
+        var firSe11 = first11 + second11;
+        
+        var first12 = d * 10 + c;
+        var second12 = b * 10 + a;
+        
+        var firSe12 = first12 + second12;
+        
+        
+        if(firSe > firSe2){
+             sum = firSe;
+        }
+        if(firSe < firSe2){
+            firSe = firSe2;
+        }
+        if(firSe < firSe3){
+            firSe = firSe3;
+        }
+        if(firSe < firSe4){
+            firSe = firSe4;
+        }  
+        if(firSe < firSe5){
+            firSe = firSe5;
+        }
+        if(firSe < firSe6){
+            firSe = firSe6;
+        } 
+        if(firSe < firSe7){
+            firSe = firSe7;
+        }
+        if(firSe < firSe8){
+            firSe = firSe8;
+        }
+        if(firSe < firSe9){
+            firSe = firSe9;
+        }
+        if(firSe < firSe10){
+            firSe = firSe10;
+        } 
+        if(firSe < firSe11){
+            firSe = firSe11;
+        }
+        if(firSe < firSe12){
+            firSe = firSe12;
+        }
+        
+        
+        Console.WriteLine(firSe);
+    }
+}
