@@ -1,0 +1,94 @@
+
+//出力と改行
+#include<iostream>
+using namespace std;
+
+int main(){
+    cout << "Hello world" << endl;
+}
+
+// cout シーアウト
+// << 出力演算子
+// coutのように、ある演算に対してどう振る舞えばよいか知っているデータのことを、オブジェクトと呼びます。
+// cin >> i; コンソールから入力
+// cout << "入力された値は" << i << "です" << endl;
+
+
+・Parse　出力
+#include <iostream>
+#include <string>
+
+using namespace std;
+int main(void){
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    string str,str1,str2;
+    string st0,st1;
+    getline(cin, str,' ');
+    getline(cin, str1,' ');
+    getline(cin, str2);
+    getline(cin, st0,' ');
+    getline(cin, st1);
+    
+    int year = atoi(str.c_str());
+    int month = atoi(str1.c_str());
+    int day = atoi(str2.c_str());
+    int fesMonth = atoi(st0.c_str());
+    int fesDay = atoi(st1.c_str());
+    
+    int yearFlg = 0;
+    
+    int longMonth = 0;
+    int betweenMonth = 0;
+    
+    if(fesMonth - month < 1){
+        longMonth = 13 + fesMonth - month;
+        yearFlg = 1;
+    }else{
+        longMonth = fesMonth - month;
+    }
+    
+    betweenMonth = longMonth;
+
+    int longDay = 0;
+
+    if(month % 2 == 0){
+        //偶数
+        longDay = 15 - day;
+    }else{
+        longDay = 13 - day;
+    }
+
+    longDay = longDay + fesDay;
+    betweenMonth = betweenMonth - 1;
+    month++;
+    
+    for(int i = 0;i<betweenMonth;i++){
+        if(month == 14){
+            month = 1;
+        }
+        if(month % 2 == 0){
+            longDay = longDay + 15;
+        }else{
+            longDay = longDay + 13;
+        }
+        month++;
+    }
+    
+    if(yearFlg == 1){
+        year++;
+        while(year % 4 != 1){
+            longDay = longDay + 181;
+            year++;
+        }
+    }else{
+        while(year % 4 != 1){
+            longDay = longDay + 181;
+            year++;
+        }
+    }
+    
+    cout << longDay << endl;
+    
+    return 0;
+}
