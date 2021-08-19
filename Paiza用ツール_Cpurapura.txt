@@ -35,6 +35,21 @@ cout →　コンソールアウトのこと
 省略ができるみたい　同じことを書かなくてよくなる
 *;/
 
+/*
+4パターンの組み合わせを出したいならforを四つ組み合わせれば出せる
+先に
+bool f = false;
+しておき
+for(){
+	for(){
+	...
+	f = true;
+	
+とすれば出せる
+
+*/
+
+
 ・Parse　出力
 #include <iostream>
 #include <string>
