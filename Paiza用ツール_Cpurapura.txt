@@ -49,6 +49,14 @@ for(){
 
 */
 
+/*
+
+int にも四種類ある
+#include <cstdint>
+が必要
+
+*/
+
 
 ・Parse　出力
 #include <iostream>
