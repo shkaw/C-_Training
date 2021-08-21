@@ -57,6 +57,14 @@ int にも四種類ある
 
 */
 
+/*
+
+オーバーロードはある
+その際の関数はstdとかで付けられる
+namespaceのこと
+
+*/
+
 
 ・Parse　出力
 #include <iostream>
