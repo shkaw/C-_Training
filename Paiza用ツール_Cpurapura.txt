@@ -1,4 +1,54 @@
 
+2021/11/03
+225D
+
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for(int i = 0;i < (n);++i)
+int main(void){
+    // Your code here!
+    int n, q;
+    cin >> n >> q;
+    vector<int> front(n,-1);
+    vector<int> back(n,-1);
+    
+    rep(qi,q){
+        int type;
+        cin >> type;
+        if(type == 3){
+            int x;
+            cin >> x;
+            --x;
+            
+            while(front[x] != -1) x = front[x];
+            vector<int> ans = {x + 1};
+            while(back[x] != -1) {
+                x = back[x];
+                ans.push_back(x+1);
+            }
+            cout << ans.size() << endl;
+            rep(i,ans.size()) cout << ans[i] << ' ';
+            cout << endl;
+        }else{
+            int x,y;
+            cin >> x >> y;
+            --x; --y;
+            if(type == 1){
+                back[x] = y;
+                front[y] = x;
+            }else{
+                back[x] = -1;
+                front[y] = -1;
+            }
+        }
+    }
+    
+}
+
+
+
 
 2021/11/02
 225B
