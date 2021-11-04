@@ -1,4 +1,28 @@
 
+2021/11/04
+225E
+0121まで　途中
+#include <iostream>
+using namespace std;
+using ll = long long;
+#include <bits/stdc++.h>
+#define rep(i,n) for(int i = 0;i < (n);++i)
+
+struct frac{
+    ll a,b;
+    frac(ll _a=0,ll _b=0)
+}
+
+
+int main(void){
+    // Your code here!
+    
+    
+    
+}
+
+
+
 2021/11/03
 225D
 
